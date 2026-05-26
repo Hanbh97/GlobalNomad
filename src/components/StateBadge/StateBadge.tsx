@@ -31,7 +31,7 @@ const STATUS_MAP = {
   },
 } as const;
 
-export default function StateBadge({ status }: StateBadgeProps) {
+const StateBadge = ({ status }: StateBadgeProps) => {
   const state = STATUS_MAP[status];
 
   return (
@@ -39,4 +39,6 @@ export default function StateBadge({ status }: StateBadgeProps) {
       {state.label}
     </Badge>
   );
-}
+};
+
+export default StateBadge;
