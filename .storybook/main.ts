@@ -14,7 +14,8 @@ const config: StorybookConfig = {
   staticDirs: ["..\\public"],
   async viteFinal(config) {
     config.plugins = config.plugins || [];
-    config.plugins.push(
+    // 아이콘 포함 컴포넌트가 정상적으로 렌더링 되기 위해 unshift로 수정
+    config.plugins.unshift(
       svgr({
         svgrOptions: {
           exportType: "default",
@@ -23,10 +24,9 @@ const config: StorybookConfig = {
           titleProp: true,
         },
         include: "**/*.svg",
-      })
+      }),
     );
     return config;
   },
 };
 export default config;
-
