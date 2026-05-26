@@ -34,6 +34,11 @@ const nextConfig: NextConfig = {
       return typedRule.test?.test?.(".svg");
     });
 
+    // [추가] undefined 반환으로 인한 조기 리턴 방지
+    if (!fileLoaderRule) {
+      return config;
+    }
+
     config.module.rules.push(
       {
         ...fileLoaderRule,
