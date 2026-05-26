@@ -17,7 +17,7 @@ import Facebook from "@/assets/icons/facebook.svg";
 import Food from "@/assets/icons/food.svg";
 import Google from "@/assets/icons/google.svg";
 import Instagram from "@/assets/icons/instagram.svg";
-import Kakao from "@/assets/icons/kakao.svg?react";
+import Kakao from "@/assets/icons/kakao.svg";
 import List from "@/assets/icons/list.svg";
 import Map from "@/assets/icons/map.svg";
 import Minus from "@/assets/icons/minus.svg";
