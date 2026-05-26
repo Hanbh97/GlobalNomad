@@ -32,7 +32,7 @@ import Tour from "@/assets/icons/tour.svg";
 import User from "@/assets/icons/user.svg";
 import Warning from "@/assets/icons/warning.svg";
 import Wellbeing from "@/assets/icons/wellbeing.svg";
-import SnsX from "@/assets/icons/snsX.svg";
+import SnsX from "@/assets/icons/sns-x.svg";
 import Youtube from "@/assets/icons/youtube.svg";
 
 export {
