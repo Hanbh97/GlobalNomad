@@ -14,7 +14,7 @@ const config: StorybookConfig = {
   staticDirs: ["..\\public"],
   async viteFinal(config) {
     config.plugins = config.plugins || [];
-    // 아이콘 포함 컴포넌트가 정상적으로 렌더링 되기 위해 unshift로 수정
+    // svg 컴포넌트가 정상적으로 렌더링 되기 위해 unshift로 수정
     config.plugins.unshift(
       svgr({
         svgrOptions: {
@@ -23,7 +23,7 @@ const config: StorybookConfig = {
           svgo: false,
           titleProp: true,
         },
-        include: "**/*.svg",
+        include: "**/*.svg?react", // svg에서 ?react 붙은 것만 컴포넌트로 처리
       }),
     );
     return config;
