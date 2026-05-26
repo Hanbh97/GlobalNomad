@@ -1,17 +1,7 @@
 "use client";
 
-import styled from "styled-components";
-
-export type ReservationStatus =
-  | "pending"
-  | "confirmed"
-  | "declined"
-  | "canceled"
-  | "completed";
-
-interface StateBadgeProps {
-  status: ReservationStatus;
-}
+import Badge from "./style";
+import { StateBadgeProps } from "./type";
 
 const STATUS_MAP = {
   pending: {
@@ -50,24 +40,3 @@ export default function StateBadge({ status }: StateBadgeProps) {
     </Badge>
   );
 }
-
-const Badge = styled.span<{
-  color: string;
-  bgColor: string;
-}>`
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  padding: 8px 12px;
-  border-radius: 999px;
-
-  background-color: ${({ bgColor }) => bgColor};
-  color: ${({ color }) => color};
-
-  font-size: "var(--text-13)";
-  font-weight: bold;
-  letter-spacing: -0.5px;
-  line-height: 1;
-  cursor: default;
-`;
