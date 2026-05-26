@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import LogoVertical from "@/assets/images/logo-vertical.svg";
 import LogoSymbol from "@/assets/images/logo-symbol.svg";
+import DefaultProfileImage from "@/assets/images/default-profile.svg";
 import BellIcon from "@/assets/icons/bell.svg";
 import styled from "styled-components";
 
@@ -26,26 +27,28 @@ export default function Header() {
           <SymbolLogo src={LogoSymbol} alt="로고" width={28} height={28} />
         </LogoLink>
         <nav>
-          <HeaderGuestMenu>
+          {/* <HeaderGuestMenu>
             {AUTH_LINKS.map(({ href, text }) => (
               <AuthList key={href}>
                 <Link href={href}>{text}</Link>
               </AuthList>
             ))}
-          </HeaderGuestMenu>
-          {/* <HeaderUserMenu>
-          <li>
-            <button>
+          </HeaderGuestMenu> */}
+          <HeaderUserMenu>
+            <NotificationButton>
               <Image src={BellIcon} alt="알림" width={24} height={24} />
-            </button>
-          </li>
-          <div></div>
-          <li>
-            <button>
-              <span>정만철</span>
-            </button>
-          </li>
-        </HeaderUserMenu> */}
+            </NotificationButton>
+            <Line />
+            <HeaderUserProfile>
+              <Image
+                src={DefaultProfileImage}
+                alt="프로필 이미지"
+                width={30}
+                height={30}
+              />
+              <UserName>정만철</UserName>
+            </HeaderUserProfile>
+          </HeaderUserMenu>
         </nav>
       </Inner>
     </Container>
@@ -135,4 +138,45 @@ export const AuthList = styled.li`
   }
 `;
 
-export const HeaderUserMenu = styled.ul``;
+export const HeaderUserMenu = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+`;
+
+export const NotificationButton = styled.button`
+  padding: 8px;
+  border-radius: 8px;
+  color: var(--gray-600);
+
+  &:hover {
+    background-color: var(--gray-25);
+  }
+`;
+
+export const Line = styled.div`
+  width: 1px;
+  height: 14px;
+  background-color: var(--gray-100);
+`;
+
+export const HeaderUserProfile = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  padding: 8px;
+  border-radius: 8px;
+
+  &:hover {
+    background-color: var(--gray-25);
+  }
+`;
+
+export const UserName = styled.span`
+  font-size: var(--text-14);
+  font-weight: 500;
+  color: var(--gray-950);
+`;
