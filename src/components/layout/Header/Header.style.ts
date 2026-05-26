@@ -9,6 +9,10 @@ import styled from "styled-components";
 export const Container = styled.header`
   width: 100%;
   height: 48px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
 
   @media (min-width: 768px) {
     height: 80px;
