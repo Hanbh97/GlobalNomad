@@ -1,5 +1,9 @@
 import Link from "next/link";
-import Image from "next/image";
+
+import LogoVertical from "@/assets/images/logo-vertical.svg";
+import LogoSymbol from "@/assets/images/logo-symbol.svg";
+import BellIcon from "@/assets/icons/bell.svg";
+
 import styled from "styled-components";
 
 export const Container = styled.header`
@@ -36,7 +40,7 @@ export const LogoLink = styled(Link)`
   cursor: pointer;
 `;
 
-export const VerticalLogo = styled(Image)`
+export const VerticalLogo = styled(LogoVertical)`
   display: none;
 
   @media (min-width: 768px) {
@@ -44,7 +48,7 @@ export const VerticalLogo = styled(Image)`
   }
 `;
 
-export const SymbolLogo = styled(Image)`
+export const SymbolLogo = styled(LogoSymbol)`
   display: block;
 
   @media (min-width: 768px) {
@@ -99,7 +103,13 @@ export const NotificationButton = styled.button`
 
   &:hover {
     background-color: var(--gray-25);
+    color: var(--gray-800);
   }
+`;
+
+export const NotificationIcon = styled(BellIcon)`
+  width: 24px;
+  height: 24px;
 `;
 
 export const Line = styled.div`
