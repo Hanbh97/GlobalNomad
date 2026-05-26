@@ -27,11 +27,11 @@ const nextConfig: NextConfig = {
   },
   webpack(config) {
     const fileLoaderRule = config.module.rules.find((rule: unknown) => {
-      const r = rule as {
+      const typedRule = rule as {
         test?: { test?: (str: string) => boolean };
         exclude?: unknown;
       };
-      return r.test?.test?.(".svg");
+      return typedRule.test?.test?.(".svg");
     });
 
     config.module.rules.push(
