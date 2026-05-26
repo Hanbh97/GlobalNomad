@@ -23,7 +23,7 @@ const config: StorybookConfig = {
           svgo: false,
           titleProp: true,
         },
-        include: "**/*.svg?react", // svg에서 ?react 붙은 것만 컴포넌트로 처리
+        include: "**/*.svg",
       }),
     );
     return config;
