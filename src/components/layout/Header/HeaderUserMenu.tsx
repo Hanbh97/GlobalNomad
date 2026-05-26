@@ -1,7 +1,5 @@
 "use client";
 
-import { useState } from "react";
-
 import DefaultProfileImage from "@/assets/images/default-profile.svg";
 
 import * as S from "./Header.style";
@@ -18,6 +16,7 @@ export default function HeaderUserMenu() {
       </S.NotificationButton>
       <S.Line />
       <S.HeaderUserProfile>
+        {/* Todo: api 연결 작업 후 수정 */}
         <DefaultProfileImage width={30} height={30} />
         <S.UserName>정만철</S.UserName>
       </S.HeaderUserProfile>
