@@ -33,7 +33,7 @@ const nextConfig: NextConfig = {
         typeof rule !== "string" &&
         rule.test instanceof RegExp &&
         rule.test.test(".svg"),
-    ) as RuleSetRule;
+    ) as RuleSetRule | undefined;
 
     config.module.rules.push(
       {
@@ -43,7 +43,7 @@ const nextConfig: NextConfig = {
       },
       {
         test: /\.svg$/i,
-        issuer: fileLoaderRule.issuer,
+        issuer: fileLoaderRule?.issuer,
         resourceQuery: { not: [/url/] },
         use: [
           {
@@ -62,9 +62,11 @@ const nextConfig: NextConfig = {
       },
     );
 
-    fileLoaderRule.exclude = /\.svg$/i;
+    if (!fileLoaderRule) {
+      return config;
+    }
 
-    return config;
+    fileLoaderRule.exclude = /\.svg$/i;
   },
 };
 export default nextConfig;
