@@ -70,7 +70,7 @@ const StyledButton = styled.button<ButtonProps>`
 
     // 버튼 타입이 text일 때
     ${({ variant, size }) =>
-    variant === "secondary" &&
+    variant === "text" &&
     css`
       padding: ${size === "md" ? "14px 40px 14px 20px" : "12px 40px 12px 20px"};
     `}
