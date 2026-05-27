@@ -1,6 +1,6 @@
 import Link from "next/link";
 import FaceBookIcon from "@/assets/icons/facebook.svg";
-import InstaIcon from "@/assets/icons/instagram.svg";
+import InstagramIcon from "@/assets/icons/instagram.svg";
 import YoutubeIcon from "@/assets/icons/youtube.svg";
 import XIcon from "@/assets/icons/sns-x.svg";
 
@@ -17,16 +17,28 @@ const Footer = () => {
           @codeit-2023
         </div>
         <div className="flex items-center gap-4 md:order-2">
-          <Link href="https://www.facebook.com/">
+          <Link
+            href="https://www.facebook.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <FaceBookIcon width={20} height={20} aria-label="페이스북" />
           </Link>
-          <Link href="https://www.instagram.com/">
-            <InstaIcon width={20} height={20} aria-label="인스타그램" />
+          <Link
+            href="https://www.instagram.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <InstagramIcon width={20} height={20} aria-label="인스타그램" />
           </Link>
-          <Link href="https://www.youtube.com/">
+          <Link
+            href="https://www.youtube.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <YoutubeIcon width={20} height={20} aria-label="유튜브" />
           </Link>
-          <Link href="https://x.com/">
+          <Link href="https://x.com/" target="_blank" rel="noopener noreferrer">
             <XIcon width={20} height={20} aria-label="X" />
           </Link>
         </div>
