@@ -39,34 +39,23 @@ body {
   font-size: 16px;
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
+@layer base {
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+  ol,
+  ul,
+  li {
+    list-style: none;
+  }
 
-ol,
-ul,
-li {
-  list-style: none;
-}
-
-button {
-  cursor: pointer;
-  border: none;
-  background: none;
-}
-
-button,
-input,
-textarea,
-select {
-  font-family: inherit;
+  button {
+    cursor: pointer;
+    border: none;
+    background: none;
+  }
 }
 
 @utility text-10-medium {
@@ -169,4 +158,14 @@ select {
   font-size: var(--font-size-20);
   font-weight: 700;
   line-height: 1.6;
+}
+
+@utility autofill-white {
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active {
+    background-color: var(--color-white);
+    box-shadow: 0 0 0 1000px var(--color-white) inset;
+  }
 }
