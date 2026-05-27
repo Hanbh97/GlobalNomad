@@ -1,7 +1,5 @@
 import { ReactNode } from "react";
 
-export type DropdownSize = "basic" | "large";
-
 export interface DropdownChildrenProps {
   toggle: () => void;
 }
@@ -12,7 +10,6 @@ export interface DropdownOption {
 }
 
 export interface DropdownProps {
-  size: DropdownSize;
   options: DropdownOption[];
   children: (props: DropdownChildrenProps) => ReactNode;
 }

@@ -3,12 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import type { DropdownProps } from "./type";
 
-const sizeClassMap = {
-  basic: "min-w-[98px]",
-  large: "min-w-[122px]",
-};
-
-const Dropdown = ({ size, options, children }: DropdownProps) => {
+const Dropdown = ({ options, children }: DropdownProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const wrapperRef = useRef<HTMLDivElement>(null);
 
@@ -41,7 +36,7 @@ const Dropdown = ({ size, options, children }: DropdownProps) => {
       {isOpen && (
         <ul
           role="listbox"
-          className={`absolute left-0 top-full mt-5 text-16-medium font-normal rounded-lg border border-[var(--color-gray-100)] bg-white shadow-[0_16px_32px_rgba(0,0,0,0.1)] ${sizeClassMap[size]}`}
+          className={`absolute left-0 top-full mt-5 text-16-medium font-normal rounded-lg border border-[var(--color-gray-100)] bg-white shadow-[0_16px_32px_rgba(0,0,0,0.1)] w-max`}
         >
           {options.map((option) => (
             <li key={option.label} className="px-[4px] py-[3px]">
