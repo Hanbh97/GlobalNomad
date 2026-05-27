@@ -1,105 +1,37 @@
-import Image from "next/image";
 import Link from "next/link";
 import FaceBookIcon from "@/assets/icons/facebook.svg";
 import InstaIcon from "@/assets/icons/instagram.svg";
 import YoutubeIcon from "@/assets/icons/youtube.svg";
 import XIcon from "@/assets/icons/sns-x.svg";
-import styled from "styled-components";
-
-const FooterWrapper = styled.footer`
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  padding: 30px 24px;
-  width: 100%;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--color-white);
-
-  @media (min-width: 768px) {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    align-self: stretch;
-    padding: 60px 40px;
-  }
-
-  @media (min-width: 1200px) {
-    padding: 60px 200px;
-  }
-`;
-
-const BottomRow = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  align-self: stretch;
-
-  @media (min-width: 768px) {
-    display: contents;
-  }
-`;
-
-const Copyright = styled.div`
-  font-size: var(--text-13);
-  color: var(--gray-400);
-
-  @media (min-width: 768px) {
-    order: 0;
-  }
-`;
-
-const FooterLinks = styled.div`
-  width: 154px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  order: 0;
-
-  font-size: var(--text-13);
-  color: var(--gray-600);
-
-  @media (min-width: 768px) {
-    order: 1;
-  }
-`;
-
-const FooterSocials = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 16px;
-
-  @media (min-width: 768px) {
-    order: 2;
-  }
-`;
 
 const Footer = () => {
   return (
-    <FooterWrapper>
-      <FooterLinks>
+    <footer className="flex flex-col gap-5 w-full items-center justify-center px-6 py-[30px] bg-white md:flex-row md:justify-between md:self-stretch md:px-10 md:py-[60px] min-[1200px]:px-[200px]">
+      <div className="w-[154px] flex justify-between items-center order-0 text-13-medium text-gray-600 md:order-1">
         <Link href="#">Privacy Policy</Link>
         <span>·</span>
         <Link href="#">FAQ</Link>
-      </FooterLinks>
-      <BottomRow>
-        <Copyright>@codeit-2023</Copyright>
-        <FooterSocials>
+      </div>
+      <div className="flex justify-between items-center self-stretch md:contents">
+        <div className="text-13-medium text-gray-400 md:order-0">
+          @codeit-2023
+        </div>
+        <div className="flex items-center gap-4 md:order-2">
           <Link href="https://www.facebook.com/">
-            <Image src={FaceBookIcon} alt="페이스북" width={20} height={20} />
+            <FaceBookIcon width={20} height={20} aria-label="페이스북" />
           </Link>
           <Link href="https://www.instagram.com/">
-            <Image src={InstaIcon} alt="인스타그램" width={20} height={20} />
+            <InstaIcon width={20} height={20} aria-label="인스타그램" />
           </Link>
           <Link href="https://www.youtube.com/">
-            <Image src={YoutubeIcon} alt="유튜브" width={20} height={20} />
+            <YoutubeIcon width={20} height={20} aria-label="유튜브" />
           </Link>
           <Link href="https://x.com/">
-            <Image src={XIcon} alt="X" width={20} height={20} />
+            <XIcon width={20} height={20} aria-label="X" />
           </Link>
-        </FooterSocials>
-      </BottomRow>
-    </FooterWrapper>
+        </div>
+      </div>
+    </footer>
   );
 };
 
