@@ -13,6 +13,10 @@ const Dropdown = ({ size, options, children }: DropdownProps) => {
   const wrapperRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (!isOpen) {
+      return;
+    }
+
     const handleOutsideClick = (event: MouseEvent) => {
       const targetNode = event.target as Node;
       const isInsideDropdown = wrapperRef.current?.contains(targetNode);
@@ -24,15 +28,15 @@ const Dropdown = ({ size, options, children }: DropdownProps) => {
 
     document.addEventListener("mousedown", handleOutsideClick);
     return () => document.removeEventListener("mousedown", handleOutsideClick);
-  }, []);
+  }, [isOpen]);
 
-  const handleClickDropdown = () => {
+  const handleDropdownClick = () => {
     setIsOpen((prev) => !prev);
   };
 
   return (
     <div className="relative inline-block" ref={wrapperRef}>
-      {children({ toggle: handleClickDropdown })}
+      {children({ toggle: handleDropdownClick })}
 
       {isOpen && (
         <ul
