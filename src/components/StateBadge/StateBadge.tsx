@@ -1,43 +1,56 @@
 "use client";
 
-import Badge from "./style";
 import { StateBadgeProps } from "./type";
+
+interface ExtendedStateBadgeProps extends StateBadgeProps {
+  className?: string;
+}
 
 const STATUS_MAP = {
   pending: {
     label: "예약 승인",
-    color: "#1790A0",
-    bgColor: "#DDF9F9",
+    className: "bg-[#DDF9F9] text-[#1790A0]",
   },
   confirmed: {
     label: "예약 완료",
-    color: "#2BA90D",
-    bgColor: "#E9FBE4",
+    className: "bg-[#E9FBE4] text-[#2BA90D]",
   },
   declined: {
     label: "예약 거절",
-    color: "#F96767",
-    bgColor: "#FCECEA",
+    className: "bg-[#FCECEA] text-[#F96767]",
   },
   canceled: {
     label: "예약 취소",
-    color: "var(--gray-600)",
-    bgColor: "var(--gray-100)",
+    className: "bg-gray-100 text-gray-600",
   },
   completed: {
     label: "체험 완료",
-    color: "#0D6CD1",
-    bgColor: "#DAF0FF",
+    className: "bg-[#DAF0FF] text-[#0D6CD1]",
   },
 } as const;
 
-const StateBadge = ({ status }: StateBadgeProps) => {
+const StateBadge = ({ status, className = "" }: ExtendedStateBadgeProps) => {
   const state = STATUS_MAP[status];
 
   return (
-    <Badge color={state.color} bgColor={state.bgColor}>
+    <span
+      className={`
+      inline-flex
+      items-center
+      justify-center
+      rounded-full
+      px-3
+      py-2
+      text-13-bold
+      leading-none
+      tracking-[-0.5px]
+      cursor-default
+      ${state.className}
+      ${className}
+    `}
+    >
       {state.label}
-    </Badge>
+    </span>
   );
 };
 
