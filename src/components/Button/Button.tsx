@@ -30,19 +30,22 @@ const Button = ({
     variant === "user" ? "tracking-[-0.35px]" : "tracking-[-0.4px]";
 
   const padding =
-    {
-      kakao:
-        size === "lg"
-          ? "py-3 px-10"
-          : size === "md"
-            ? "py-3.5 px-10"
-            : "py-1 px-5",
-      user: size === "md" ? "py-3.5 pr-10 pl-5" : "py-3 pr-10 pl-5",
-    }[variant!] ?? (size === "sm" ? "py-3 px-10" : "py-3.5 px-10");
+    (variant &&
+      {
+        kakao:
+          size === "lg"
+            ? "py-3 px-10"
+            : size === "md"
+              ? "py-3.5 px-10"
+              : "py-1 px-5",
+        user: size === "md" ? "py-3.5 pr-10 pl-5" : "py-3 pr-10 pl-5",
+      }[variant]) ??
+    (size === "sm" ? "py-3 px-10" : "py-3.5 px-10");
 
   const state =
-    {
-      kakao: `bg-white text-[#e6cf00] border border-gray-200
+    (variant &&
+      {
+        kakao: `bg-white text-[#e6cf00] border border-gray-200
     [&_svg]:text-[#3c1e1e] [&_svg]:shrink-0 [&_svg]:aspect-square 
     ${size === "lg" ? "[&_svg]:size-6" : size === "md" ? "[&_svg]:size-5" : "[&_svg]:size-4"}
     active:bg-white active:text-[#3c1e1e] active:border-1.7 active:border-[#e6cf00] 
@@ -50,11 +53,11 @@ const Button = ({
     disabled:bg-white disabled:text-gray-200 disabled:border disabled:border-gray-200 disabled:cursor-not-allowed 
     disabled:[&_svg]:text-gray-500`,
 
-      user: `bg-transparent text-[#1f1f22] border-none justify-start
+        user: `bg-transparent text-[#1f1f22] border-none justify-start
     ${size === "lg" ? "[&_svg]:size-6" : size === "md" ? "[&_svg]:size-5" : "[&_svg]:size-4"}
     [&_svg]:text-gray-500 [&_svg]:shrink-0
     active:bg-primary-100 active:text-[#1f1f22] active:[&_svg]:text-primary-500`,
-    }[variant!] ??
+      }[variant]) ??
     `bg-primary-500 text-white border-none
     active:bg-[#2b8de0]                                                                                            
     disabled:bg-gray-200 disabled:text-gray-50 disabled:cursor-not-allowed`;
