@@ -68,3 +68,117 @@ textarea,
 select {
   font-family: inherit;
 }
+
+@utility text-10-medium {
+  font-size: var(--text-10);
+  font-weight: 500;
+}
+
+@utility text-10-bold {
+  font-size: var(--text-10);
+  font-weight: 700;
+}
+
+@utility text-12-medium {
+  font-size: var(--text-12);
+  font-weight: 500;
+}
+
+@utility text-12-bold {
+  font-size: var(--text-12);
+  font-weight: 700;
+}
+
+@utility text-13-medium {
+  font-size: var(--text-13);
+  font-weight: 500;
+}
+
+@utility text-13-bold {
+  font-size: var(--text-13);
+  font-weight: 700;
+}
+
+@utility text-14-medium {
+  font-size: var(--text-14);
+  font-weight: 500;
+}
+
+@utility text-14-bold {
+  font-size: var(--text-14);
+  font-weight: 700;
+}
+
+@utility text-16-medium {
+  font-size: var(--text-16);
+  font-weight: 500;
+}
+
+@utility text-16-bold {
+  font-size: var(--text-16);
+  font-weight: 700;
+}
+
+@utility text-18-medium {
+  font-size: var(--text-18);
+  font-weight: 500;
+}
+
+@utility text-18-bold {
+  font-size: var(--text-18);
+  font-weight: 700;
+}
+
+@utility text-20-medium {
+  font-size: var(--text-20);
+  font-weight: 500;
+}
+
+@utility text-20-bold {
+  font-size: var(--text-20);
+  font-weight: 700;
+}
+
+@utility text-24-medium {
+  font-size: var(--text-24);
+  font-weight: 500;
+}
+
+@utility text-24-bold {
+  font-size: var(--text-24);
+  font-weight: 700;
+}
+
+@utility text-32-medium {
+  font-size: var(--text-32);
+  font-weight: 500;
+}
+
+@utility text-32-bold {
+  font-size: var(--text-32);
+  font-weight: 700;
+}
+
+@utility body-14-medium {
+  font-size: var(--text-14);
+  font-weight: 500;
+  line-height: 1.8;
+}
+
+@utility body-16-medium {
+  font-size: var(--text-16);
+  font-weight: 500;
+  line-height: 1.8;
+}
+
+@utility body-18-bold {
+  font-size: var(--text-18);
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+@utility body-20-bold {
+  font-size: var(--text-20);
+  font-weight: 700;
+  line-height: 1.6;
+}
