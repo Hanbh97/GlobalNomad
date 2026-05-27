@@ -1,5 +1,4 @@
 import Link from "next/link";
-import * as S from "./style";
 
 type AuthLink = { href: string; text: string };
 
@@ -16,12 +15,15 @@ const AUTH_LINKS: AuthLink[] = [
 
 export default function HeaderGuestMenu() {
   return (
-    <S.GuestMenuWrapper>
+    <ul className="flex justify-center items-center gap-2.5 md:gap-3">
       {AUTH_LINKS.map(({ href, text }) => (
-        <S.AuthList key={href}>
+        <li
+          key={href}
+          className="px-3 py-2 text-14-medium text-gray-950 md:px-4 md:py-3 rounded hover:text-primary-500 active:scale-95 active:opacity-70 transition"
+        >
           <Link href={href}>{text}</Link>
-        </S.AuthList>
+        </li>
       ))}
-    </S.GuestMenuWrapper>
+    </ul>
   );
 }

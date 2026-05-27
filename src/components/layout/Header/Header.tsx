@@ -21,8 +21,8 @@ export default function Header({ user }: UserProps) {
   const isLoggedIn = !!user;
 
   return (
-    <header className="w-full h-12 fixed top-0 left-0 z-999 md:h-20 ">
-      <div className="w-full max-w-380 h-full flex items-center justify-between mx-auto px-6 py-6 md:px-7.5">
+    <header className="w-full h-12 fixed top-0 left-0 z-[999] md:h-20 flex justify-center">
+      <div className="w-full max-w-380 flex items-center justify-between mx-auto px-6 md:px-7.5">
         <Link href="/" className="flex items-center py-2.5 cursor-pointer">
           <LogoVertical
             alt="로고"
