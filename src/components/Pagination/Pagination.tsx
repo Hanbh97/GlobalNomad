@@ -4,14 +4,14 @@ import Image from "next/image";
 import { ChevronDown } from "@/constants/icons";
 import { PaginationProps } from "./type";
 
+const maxVisible = 5;
+
 const Pagination = ({
   currentPage,
   totalPages,
   onPageChange,
 }: PaginationProps) => {
   const getPageNumbers = () => {
-    const maxVisible = 5;
-
     let start = Math.max(currentPage - Math.floor(maxVisible / 2), 1);
 
     let end = start + maxVisible - 1;
