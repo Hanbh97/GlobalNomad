@@ -28,12 +28,20 @@ const nextConfig: NextConfig = {
   },
 
   webpack(config) {
-    const fileLoaderRule = config.module.rules.find(
-      (rule: RuleSetRule) =>
-        typeof rule !== "string" &&
+    const rules = config.module.rules as RuleSetRule[];
+
+    const fileLoaderRule = rules.find(
+      (rule): rule is RuleSetRule =>
+        typeof rule === "object" &&
+        rule !== null &&
+        "test" in rule &&
         rule.test instanceof RegExp &&
         rule.test.test(".svg"),
-    ) as RuleSetRule | undefined;
+    );
+
+    if (!fileLoaderRule) {
+      return config;
+    }
 
     config.module.rules.push(
       {
@@ -61,10 +69,6 @@ const nextConfig: NextConfig = {
         ],
       },
     );
-
-    if (!fileLoaderRule) {
-      return config;
-    }
 
     fileLoaderRule.exclude = /\.svg$/i;
     return config;
