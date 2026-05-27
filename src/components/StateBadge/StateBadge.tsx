@@ -39,8 +39,8 @@ const StateBadge = ({ status, className = "" }: ExtendedStateBadgeProps) => {
       items-center
       justify-center
       rounded-full
-      px-3
-      py-2
+      w-[63px]
+      h-6
       text-13-bold
       leading-none
       tracking-[-0.5px]
