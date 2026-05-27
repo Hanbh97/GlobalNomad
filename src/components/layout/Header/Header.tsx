@@ -16,7 +16,7 @@ type UserProps = {
   user?: User | null;
 };
 
-export default function Header({ user }: UserProps) {
+const Header = ({ user }: UserProps) => {
   // Todo: 로그인 기능 완료 후 수정
   const isLoggedIn = !!user;
 
@@ -43,4 +43,6 @@ export default function Header({ user }: UserProps) {
       </div>
     </header>
   );
-}
+};
+
+export default Header;

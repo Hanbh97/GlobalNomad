@@ -9,7 +9,7 @@ type UserProps = {
   user: User;
 };
 
-export default function HeaderUserMenu({ user }: UserProps) {
+const HeaderUserMenu = ({ user }: UserProps) => {
   // Todo: 드롭다운 컴포넌트 생성 후 기능 구현
   // const [isNoticeOpen, setIsNoticeOpen] = useState(false);
   // const [isProfileOpen, setIsProfileOpen] = useState(false);
@@ -37,4 +37,6 @@ export default function HeaderUserMenu({ user }: UserProps) {
       </button>
     </div>
   );
-}
+};
+
+export default HeaderUserMenu;

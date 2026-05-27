@@ -13,7 +13,7 @@ const AUTH_LINKS: AuthLink[] = [
   },
 ];
 
-export default function HeaderGuestMenu() {
+const HeaderGuestMenu = () => {
   return (
     <ul className="flex justify-center items-center gap-2.5 md:gap-3">
       {AUTH_LINKS.map(({ href, text }) => (
@@ -26,4 +26,6 @@ export default function HeaderGuestMenu() {
       ))}
     </ul>
   );
-}
+};
+
+export default HeaderGuestMenu;
