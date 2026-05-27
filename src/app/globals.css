@@ -21,15 +21,15 @@
   --color-primary-500: #3d9ef2;
   --color-red-500: #ff2727;
 
-  --text-10: 10px;
-  --text-12: 12px;
-  --text-13: 13px;
-  --text-14: 14px;
-  --text-16: 16px;
-  --text-18: 18px;
-  --text-20: 20px;
-  --text-24: 24px;
-  --text-32: 32px;
+  --font-size-10: 10px;
+  --font-size-12: 12px;
+  --font-size-13: 13px;
+  --font-size-14: 14px;
+  --font-size-16: 16px;
+  --font-size-18: 18px;
+  --font-size-20: 20px;
+  --font-size-24: 24px;
+  --font-size-32: 32px;
 }
 
 body {
@@ -37,6 +37,12 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 16px;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 a {
@@ -64,115 +70,103 @@ select {
 }
 
 @utility text-10-medium {
-  font-size: var(--text-10);
+  font-size: var(--font-size-10);
   font-weight: 500;
 }
-
 @utility text-10-bold {
-  font-size: var(--text-10);
+  font-size: var(--font-size-10);
   font-weight: 700;
 }
 
 @utility text-12-medium {
-  font-size: var(--text-12);
+  font-size: var(--font-size-12);
   font-weight: 500;
 }
-
 @utility text-12-bold {
-  font-size: var(--text-12);
+  font-size: var(--font-size-12);
   font-weight: 700;
 }
 
 @utility text-13-medium {
-  font-size: var(--text-13);
+  font-size: var(--font-size-13);
   font-weight: 500;
 }
-
 @utility text-13-bold {
-  font-size: var(--text-13);
+  font-size: var(--font-size-13);
   font-weight: 700;
 }
 
 @utility text-14-medium {
-  font-size: var(--text-14);
+  font-size: var(--font-size-14);
   font-weight: 500;
 }
-
 @utility text-14-bold {
-  font-size: var(--text-14);
+  font-size: var(--font-size-14);
   font-weight: 700;
 }
 
 @utility text-16-medium {
-  font-size: var(--text-16);
+  font-size: var(--font-size-16);
   font-weight: 500;
 }
-
 @utility text-16-bold {
-  font-size: var(--text-16);
+  font-size: var(--font-size-16);
   font-weight: 700;
 }
 
 @utility text-18-medium {
-  font-size: var(--text-18);
+  font-size: var(--font-size-18);
   font-weight: 500;
 }
-
 @utility text-18-bold {
-  font-size: var(--text-18);
+  font-size: var(--font-size-18);
   font-weight: 700;
 }
 
 @utility text-20-medium {
-  font-size: var(--text-20);
+  font-size: var(--font-size-20);
   font-weight: 500;
 }
-
 @utility text-20-bold {
-  font-size: var(--text-20);
+  font-size: var(--font-size-20);
   font-weight: 700;
 }
 
 @utility text-24-medium {
-  font-size: var(--text-24);
+  font-size: var(--font-size-24);
   font-weight: 500;
 }
-
 @utility text-24-bold {
-  font-size: var(--text-24);
+  font-size: var(--font-size-24);
   font-weight: 700;
 }
 
 @utility text-32-medium {
-  font-size: var(--text-32);
+  font-size: var(--font-size-32);
   font-weight: 500;
 }
-
 @utility text-32-bold {
-  font-size: var(--text-32);
+  font-size: var(--font-size-32);
   font-weight: 700;
 }
 
 @utility body-14-medium {
-  font-size: var(--text-14);
+  font-size: var(--font-size-14);
   font-weight: 500;
   line-height: 1.8;
 }
-
 @utility body-16-medium {
-  font-size: var(--text-16);
+  font-size: var(--font-size-16);
   font-weight: 500;
   line-height: 1.8;
 }
-
 @utility body-18-bold {
-  font-size: var(--text-18);
+  font-size: var(--font-size-18);
   font-weight: 700;
   line-height: 1.4;
 }
-
 @utility body-20-bold {
-  font-size: var(--text-20);
+  font-size: var(--font-size-20);
   font-weight: 700;
   line-height: 1.6;
 }
