@@ -64,37 +64,37 @@ select {
 }
 
 @utility text-10-medium {
-  font-size: var(--font-size-10);
+  font-size: var(--text-10);
   font-weight: 500;
 }
 
 @utility text-10-bold {
-  font-size: var(--font-size-10);
+  font-size: var(--text-10);
   font-weight: 700;
 }
 
 @utility text-12-medium {
-  font-size: var(--font-size-12);
+  font-size: var(--text-12);
   font-weight: 500;
 }
 
 @utility text-12-bold {
-  font-size: var(--font-size-12);
+  font-size: var(--text-12);
   font-weight: 700;
 }
 
 @utility text-13-medium {
-  font-size: var(--font-size-13);
+  font-size: var(--text-13);
   font-weight: 500;
 }
 
 @utility text-13-bold {
-  font-size: var(--font-size-13);
+  font-size: var(--text-13);
   font-weight: 700;
 }
 
 @utility text-14-medium {
-  font-size: var(--font-size-14);
+  font-size: var(--text-14);
   font-weight: 500;
 }
 
