@@ -7,59 +7,59 @@ import BellIcon from "@/assets/icons/bell.svg";
 import styled from "styled-components";
 import Image from "next/image";
 
-export const Container = styled.header`
-  width: 100%;
-  height: 48px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 999;
+// export const Container = styled.header`
+//   width: 100%;
+//   height: 48px;
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   z-index: 999;
 
-  @media (min-width: 768px) {
-    height: 80px;
-  }
-`;
+//   @media (min-width: 768px) {
+//     height: 80px;
+//   }
+// `;
 
-export const Inner = styled.div`
-  width: 100%;
-  max-width: 1520px;
-  height: 100%;
+// export const Inner = styled.div`
+//   width: 100%;
+//   max-width: 1520px;
+//   height: 100%;
 
-  margin: 0 auto;
-  padding: 10px 24px;
+//   margin: 0 auto;
+//   padding: 10px 24px;
 
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
 
-  @media (min-width: 768px) {
-    height: 80px;
-    padding: 0 30px;
-  }
-`;
+//   @media (min-width: 768px) {
+//     height: 80px;
+//     padding: 0 30px;
+//   }
+// `;
 
-export const LogoLink = styled(Link)`
-  padding: 10px 0;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-`;
+// export const LogoLink = styled(Link)`
+//   padding: 10px 0;
+//   display: flex;
+//   align-items: center;
+//   cursor: pointer;
+// `;
 
-export const VerticalLogo = styled(LogoVertical)`
-  display: none;
+// export const VerticalLogo = styled(LogoVertical)`
+//   display: none;
 
-  @media (min-width: 768px) {
-    display: block;
-  }
-`;
+//   @media (min-width: 768px) {
+//     display: block;
+//   }
+// `;
 
-export const SymbolLogo = styled(LogoSymbol)`
-  display: block;
+// export const SymbolLogo = styled(LogoSymbol)`
+//   display: block;
 
-  @media (min-width: 768px) {
-    display: none;
-  }
-`;
+//   @media (min-width: 768px) {
+//     display: none;
+//   }
+// `;
 
 export const GuestMenuWrapper = styled.ul`
   display: flex;
