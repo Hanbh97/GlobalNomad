@@ -5,6 +5,7 @@ import LogoSymbol from "@/assets/images/logo-symbol.svg";
 import BellIcon from "@/assets/icons/bell.svg";
 
 import styled from "styled-components";
+import Image from "next/image";
 
 export const Container = styled.header`
   width: 100%;
@@ -60,7 +61,7 @@ export const SymbolLogo = styled(LogoSymbol)`
   }
 `;
 
-export const HeaderGuestMenu = styled.ul`
+export const GuestMenuWrapper = styled.ul`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -93,7 +94,7 @@ export const AuthList = styled.li`
   }
 `;
 
-export const HeaderUserMenu = styled.div`
+export const UserMenuWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -108,6 +109,10 @@ export const NotificationButton = styled.button`
   &:hover {
     background-color: var(--gray-25);
     color: var(--gray-800);
+  }
+  &:active {
+    transform: scale(0.97);
+    opacity: 0.7;
   }
 `;
 
@@ -134,6 +139,17 @@ export const HeaderUserProfile = styled.button`
   &:hover {
     background-color: var(--gray-25);
   }
+  &:active {
+    transform: scale(0.97);
+    opacity: 0.7;
+  }
+`;
+
+export const ProfileImage = styled(Image)`
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
 `;
 
 export const UserName = styled.span`
