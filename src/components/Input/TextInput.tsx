@@ -17,9 +17,9 @@ const TextInput = ({
   className = "",
 }: TextInputProps) => {
   const inputId = id || name;
-  const [isFocus, setIsFocus] = useState(false);
-  const [showPassword, setShowPassword] = useState(false);
-  const status = errorMessage ? "error" : isFocus ? "focus" : "default";
+  const [isFocused, setIsFocused] = useState(false);
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+  const status = errorMessage ? "error" : isFocused ? "focus" : "default";
   return (
     <div className={className}>
       <label htmlFor={inputId} className="text-16-medium mb-[10px] block">
@@ -35,20 +35,20 @@ ${status === "error" ? "border-red-500" : ""}`}
           value={value}
           disabled={disabled}
           onChange={onChange}
-          type={type === `password` && showPassword ? "text" : type}
+          type={type === `password` && isPasswordVisible ? "text" : type}
           placeholder={placeholder}
-          onFocus={() => setIsFocus(true)}
-          onBlur={() => setIsFocus(false)}
+          onFocus={() => setIsFocused(true)}
+          onBlur={() => setIsFocused(false)}
           className={`w-full h-full ${type === "password" ? "pr-[56px]" : "pr-[20px]"} pl-[20px] border-none rounded-[16px] outline-none text-16-medium bg-white placeholder-gray-400 autofill-white disabled:bg-gray-50 disabled:text-gray-400 disabled:placeholder-gray-200`}
         />
         {type === "password" && (
           <button
             type="button"
             disabled={disabled}
-            onClick={() => setShowPassword((prev) => !prev)}
+            onClick={() => setIsPasswordVisible((prev) => !prev)}
             className="absolute right-5 top-1/2 -translate-y-1/2 disabled:cursor-default"
           >
-            {showPassword ? (
+            {isPasswordVisible ? (
               <EyeOn className="size-6 invert-[0.5]" />
             ) : (
               <EyeOff className="size-6 invert-[0.5]" />
@@ -57,7 +57,9 @@ ${status === "error" ? "border-red-500" : ""}`}
         )}
       </div>
       {errorMessage && (
-        <p className="text-red-500 text-14 mt-[6px] ml-2">{errorMessage}</p>
+        <p className="text-red-500 text-14-medium mt-[6px] ml-2">
+          {errorMessage}
+        </p>
       )}
     </div>
   );
