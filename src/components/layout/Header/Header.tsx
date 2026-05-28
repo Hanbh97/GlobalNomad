@@ -21,7 +21,7 @@ const Header = ({ user }: UserProps) => {
   const isLoggedIn = !!user;
 
   return (
-    <header className="w-full h-12 fixed top-0 left-0 z-[999] md:h-20 flex justify-center">
+    <header className="w-full h-12 fixed top-0 left-0 z-[999] md:h-20 flex justify-center bg-white">
       <div className="w-full max-w-380 flex items-center justify-between mx-auto px-6 md:px-7.5">
         <Link href="/" className="flex items-center py-2.5 cursor-pointer">
           <LogoVertical
