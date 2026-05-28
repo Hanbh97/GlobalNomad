@@ -2,33 +2,27 @@
 
 import { ChangeEvent, useEffect, useId, useState } from "react";
 import { DefaultProfile } from "@/constants/images";
-import PhotoInputProps from "./type";
+import ImageInputProps from "./type";
 import { Edit } from "@/constants/icons";
 
-const ImageInput = ({ id, name, label, ...props }: PhotoInputProps) => {
+const ImageInput = ({ id, name, label, ...props }: ImageInputProps) => {
   const inputId = id ?? useId();
   const [preview, setPreview] = useState<string | null>(null);
-  const [previewObjectUrl, setPreviewObjectUrl] = useState<string | null>(null);
 
   useEffect(() => {
     return () => {
-      if (previewObjectUrl) {
-        URL.revokeObjectURL(previewObjectUrl);
+      if (preview) {
+        URL.revokeObjectURL(preview);
       }
     };
-  }, [previewObjectUrl]);
+  }, [preview]);
 
   const handleImageChange = (e: ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
 
     if (file) {
-      if (previewObjectUrl) {
-        URL.revokeObjectURL(previewObjectUrl);
-      }
-
       const objectUrl = URL.createObjectURL(file);
       setPreview(objectUrl);
-      setPreviewObjectUrl(objectUrl);
     }
   };
 
