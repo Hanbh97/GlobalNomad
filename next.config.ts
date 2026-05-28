@@ -2,9 +2,6 @@ import type { NextConfig } from "next";
 import type { RuleSetRule } from "webpack";
 
 const nextConfig: NextConfig = {
-  compiler: {
-    styledComponents: true,
-  },
   turbopack: {
     rules: {
       "*.svg": {
