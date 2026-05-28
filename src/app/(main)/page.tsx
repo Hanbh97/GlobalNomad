@@ -1,6 +1,6 @@
 "use client";
 
-import Modal from "@/components/modal";
+import Modal from "@/components/Modal/Modal";
 import { useState } from "react";
 
 const Home = () => {
@@ -17,17 +17,15 @@ const Home = () => {
       <br />
       <button onClick={() => setIsOpen3(true)}>lg 모달</button>
 
-      <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}></Modal>
-      <Modal
-        isOpen={isOpen2}
-        onClose={() => setIsOpen2(false)}
-        size="md"
-      ></Modal>
-      <Modal
-        isOpen={isOpen3}
-        onClose={() => setIsOpen3(false)}
-        size="lg"
-      ></Modal>
+      <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
+        sm 모달
+      </Modal>
+      <Modal isOpen={isOpen2} onClose={() => setIsOpen2(false)} size="md">
+        md 모달
+      </Modal>
+      <Modal isOpen={isOpen3} onClose={() => setIsOpen3(false)} size="lg">
+        lg 모달
+      </Modal>
     </>
   );
 };

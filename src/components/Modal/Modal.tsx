@@ -1,14 +1,8 @@
 "use client";
 
 import { createPortal } from "react-dom";
-import React, { useEffect } from "react";
-
-interface ModalProps {
-  isOpen: boolean;
-  onClose: () => void;
-  size?: "sm" | "md" | "lg";
-  children?: React.ReactNode;
-}
+import { useEffect } from "react";
+import type { ModalProps } from "./type";
 
 const sizeClass = {
   sm: "w-[320px] min-h-[140px] rounded-[24px] p-[30px] md:w-[400px] md:min-h-[170px] md:rounded-[30px] md:p-10",
