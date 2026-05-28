@@ -22,9 +22,11 @@ const TextInput = ({
   const status = errorMessage ? "error" : isFocused ? "focus" : "default";
   return (
     <div className={className}>
-      <label htmlFor={inputId} className="text-16-medium mb-[10px] block">
-        {label}
-      </label>
+      {label && (
+        <label htmlFor={inputId} className="text-16-medium mb-[10px] block">
+          {label}
+        </label>
+      )}
       <div
         className={`relative h-[54px] border-2 border-gray-100 rounded-[16px] shadow-[0_2px_6px_0_rgba(0,0,0,0.02)] ${status === "focus" ? "border-primary-500" : ""}
 ${status === "error" ? "border-red-500" : ""}`}
