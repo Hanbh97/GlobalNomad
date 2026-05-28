@@ -1,5 +1,7 @@
 "use client";
 
+import { twMerge } from "tailwind-merge";
+
 import { ButtonProps } from "./type";
 import { Kakao as KakaoIcon } from "@/constants/icons";
 import { User as UserIcon } from "@/constants/icons";
@@ -8,6 +10,7 @@ const Button = ({
   children,
   variant,
   size = "lg",
+  className,
   ...restProps
 }: ButtonProps) => {
   const width = variant === "user" ? "w-fit" : "w-85.5";
@@ -46,26 +49,29 @@ const Button = ({
     (variant &&
       {
         kakao: `bg-white text-[#e6cf00] border border-gray-200
-    [&_svg]:text-[#3c1e1e] [&_svg]:shrink-0 [&_svg]:aspect-square 
+    [&_svg]:text-[#3c1e1e] 
     ${size === "lg" ? "[&_svg]:size-6" : size === "md" ? "[&_svg]:size-5" : "[&_svg]:size-4"}
     active:bg-white active:text-[#3c1e1e] active:border-1.7 active:border-[#e6cf00] 
     active:[&_svg]:text-[#3c1e1e]
-    disabled:bg-white disabled:text-gray-200 disabled:border disabled:border-gray-200 disabled:cursor-not-allowed 
+    disabled:bg-white disabled:text-gray-200 disabled:border disabled:border-gray-200
     disabled:[&_svg]:text-gray-500`,
 
-        user: `bg-transparent text-[#1f1f22] border-none justify-start
-    ${size === "lg" ? "[&_svg]:size-6" : size === "md" ? "[&_svg]:size-5" : "[&_svg]:size-4"}
-    [&_svg]:text-gray-500 [&_svg]:shrink-0
-    active:bg-primary-100 active:text-[#1f1f22] active:[&_svg]:text-primary-500`,
+        user: `bg-transparent text-[#1f1f22] border-none
+    ${size === "lg" ? "[&_svg]:size-6" : size === "md" ? "[&_svg]:size-5" : "[&_svg]:size-4"} [&_svg]:text-gray-500
+    active:bg-primary-100 active:text-[#1f1f22] active:[&_svg]:text-primary-500
+    disabled:bg-gray-50 disabled:text-[#1f1f22] disabled:[&_svg]:text-primary-500`,
       }[variant]) ??
     `bg-primary-500 text-white border-none
     active:bg-[#2b8de0]                                                                                            
-    disabled:bg-gray-200 disabled:text-gray-50 disabled:cursor-not-allowed`;
+    disabled:bg-gray-200 disabled:text-gray-50`;
 
   return (
     <button
-      className={`flex justify-center items-center 
-        ${width} ${height} ${minWidth} ${gap} ${padding} ${radius} ${fontSize} ${fontWeight} ${letterSpacing} ${state}`}
+      className={twMerge(
+        `flex justify-center items-center [&_svg]:shrink-0 [&_svg]:aspect-square disabled:cursor-not-allowed disabled:opacity-70 
+        ${width} ${height} ${minWidth} ${gap} ${padding} ${radius} ${fontSize} ${fontWeight} ${letterSpacing} ${state}`,
+        className,
+      )}
       {...restProps}
     >
       {variant === "kakao" && <KakaoIcon />}
