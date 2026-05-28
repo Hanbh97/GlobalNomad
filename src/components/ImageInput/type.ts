@@ -1,6 +1,6 @@
 import React from "react";
 
-interface ImageInputProps extends Omit<
+interface ProfileImageInputProps extends Omit<
   React.InputHTMLAttributes<HTMLInputElement>,
   "name" | "type"
 > {
@@ -9,4 +9,4 @@ interface ImageInputProps extends Omit<
   label: string;
 }
 
-export default ImageInputProps;
+export default ProfileImageInputProps;

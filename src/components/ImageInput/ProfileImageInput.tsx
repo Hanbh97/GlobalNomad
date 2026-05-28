@@ -5,7 +5,7 @@ import { DefaultProfile } from "@/constants/images";
 import ImageInputProps from "./type";
 import { Edit } from "@/constants/icons";
 
-const ImageInput = ({ id, name, label, ...props }: ImageInputProps) => {
+const ProfileImageInput = ({ id, name, label, ...props }: ImageInputProps) => {
   const inputId = id ?? useId();
   const [preview, setPreview] = useState<string | null>(null);
 
@@ -61,4 +61,4 @@ const ImageInput = ({ id, name, label, ...props }: ImageInputProps) => {
   );
 };
 
-export default ImageInput;
+export default ProfileImageInput;
