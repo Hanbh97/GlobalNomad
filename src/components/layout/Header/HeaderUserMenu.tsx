@@ -15,7 +15,7 @@ type UserProps = {
 const HeaderUserMenu = ({ user }: UserProps) => {
   const router = useRouter();
 
-  const ProfileMenu = [
+  const profileMenus = [
     {
       label: "마이페이지",
       onSelect: () => {
@@ -34,11 +34,14 @@ const HeaderUserMenu = ({ user }: UserProps) => {
   return (
     <div className="flex justify-center items-center gap-5">
       {/* Todo: 알림 기능 구현 */}
-      <button className="p-2 rounded-lg text-gray-600 hover:bg-gray-25 hover:text-primary-500 active:opacity-70 transition">
+      <button
+        aria-label="알림"
+        className="p-2 rounded-lg text-gray-600 hover:bg-gray-25 hover:text-primary-500 active:opacity-70 transition"
+      >
         <BellIcon width={24} height={24} />
       </button>
       <div className="w-px h-3.5 bg-gray-100" />
-      <Dropdown options={ProfileMenu}>
+      <Dropdown options={profileMenus}>
         {({ toggle }) => (
           <button
             onClick={toggle}

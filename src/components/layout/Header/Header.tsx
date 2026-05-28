@@ -17,28 +17,26 @@ type UserProps = {
 };
 
 const Header = ({ user }: UserProps) => {
-  // Todo: 로그인 기능 완료 후 수정
-  const isLoggedIn = !!user;
-
   return (
     <header className="w-full h-12 fixed top-0 left-0 z-[999] md:h-20 flex justify-center bg-white">
       <div className="w-full max-w-380 flex items-center justify-between mx-auto px-6 md:px-7.5">
         <Link href="/" className="flex items-center py-2.5 cursor-pointer">
           <LogoVertical
-            alt="로고"
+            aria-label="로고"
             width={174}
             height={28}
             className="hidden md:block"
           />
           <LogoSymbol
-            alt="로고"
+            aria-label="로고"
             width={28}
             height={28}
             className="block md:hidden"
           />
         </Link>
         <nav>
-          {isLoggedIn ? <HeaderUserMenu user={user} /> : <HeaderGuestMenu />}
+          {/* Todo: 로그인 기능 완료 후 수정 */}
+          {user ? <HeaderUserMenu user={user} /> : <HeaderGuestMenu />}
         </nav>
       </div>
     </header>
