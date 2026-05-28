@@ -4,12 +4,14 @@ import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-import UserIcon from "@/assets/icons/user.svg";
-import ReservationIcon from "@/assets/icons/list.svg";
-import SettingIcon from "@/assets/icons/setting.svg";
-import CalenderIcon from "@/assets/icons/calendar.svg";
-import ArrowRight from "@/assets/icons/alt-arrow-right.svg";
-import ArrowLeft from "@/assets/icons/alt-arrow-left.svg";
+import {
+  User as UserIcon,
+  List as ReservationIcon,
+  Setting as SettingIcon,
+  Calendar as CalendarIcon,
+  AltRight as ArrowRight,
+  AltLeft as ArrowLeft,
+} from "@/constants/icons";
 
 const MENU_LIST = [
   {
@@ -33,7 +35,7 @@ const MENU_LIST = [
   {
     id: "reservation-status",
     href: "/mypage/reservation-status",
-    icon: CalenderIcon,
+    icon: CalendarIcon,
     label: "예약 현황",
   },
 ];
