@@ -44,11 +44,19 @@ const SideMenu = () => {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
 
+  const handleCloseSideMenu = () => {
+    setIsOpen(false);
+  };
+
+  const handleToggleButtonClick = () => {
+    setIsOpen((prev) => !prev);
+  };
+
   return (
     <>
       {isOpen && (
         <div
-          onClick={() => setIsOpen(false)}
+          onClick={handleCloseSideMenu}
           className="fixed inset-0 z-40 bg-black/30 backdrop-blur-sm md:hidden"
         />
       )}
@@ -70,7 +78,7 @@ const SideMenu = () => {
               <li key={menu.id} className="w-full h-full">
                 <Link
                   href={menu.href}
-                  onClick={() => setIsOpen(false)}
+                  onClick={handleCloseSideMenu}
                   className={`
                     w-full px-5 py-3.5 flex items-center gap-2 rounded-2xl text-16-medium hover:text-gray-700 hover:bg-gray-50 active:scale-95 transition
                     ${
@@ -92,7 +100,9 @@ const SideMenu = () => {
         </ul>
 
         <button
-          onClick={() => setIsOpen((prev) => !prev)}
+          onClick={handleToggleButtonClick}
+          aria-label={isOpen ? "메뉴 닫기" : "메뉴 열기"}
+          aria-expanded={isOpen}
           className="absolute top-1/2 right-0 -translate-y-1/2 translate-x-full z-[999] w-8.75 h-40 rounded-r-xl flex items-center justify-center bg-white border border-gray-50 shadow-[0_4px_24px_rgba(156,180,202,0.2)] md:hidden"
         >
           {isOpen ? (
