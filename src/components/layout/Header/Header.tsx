@@ -1,3 +1,6 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import Link from "next/link";
 
 import HeaderUserMenu from "./HeaderUserMenu";
@@ -17,8 +20,24 @@ type UserProps = {
 };
 
 const Header = ({ user }: UserProps) => {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <header className="w-full h-12 fixed top-0 left-0 z-[999] md:h-20 flex justify-center bg-white">
+    <header
+      className={`w-full h-12 fixed top-0 left-0 z-[999] md:h-20 flex justify-center transition-all duration-300 ${isScrolled ? "bg-white" : "bg-transparent"}`}
+    >
       <div className="w-full max-w-380 flex items-center justify-between mx-auto px-6 md:px-7.5">
         <Link href="/" className="flex items-center py-2.5 cursor-pointer">
           <LogoVertical
