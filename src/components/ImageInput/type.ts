@@ -1,3 +1,4 @@
+import React from "react";
 import type { InputHTMLAttributes } from "react";
 
 export interface PreviewImage {
@@ -14,4 +15,13 @@ export interface MultiImageInputProps extends Omit<
   name: string;
   label: string;
   maxCount?: number;
+}
+
+export interface ProfileImageInputProps extends Omit<
+  React.InputHTMLAttributes<HTMLInputElement>,
+  "name" | "type"
+> {
+  id?: string;
+  name: string;
+  label: string;
 }
