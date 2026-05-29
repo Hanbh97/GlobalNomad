@@ -47,6 +47,11 @@ const MultiImageInput = ({
     }
 
     const remainingSlots = maxCount - previews.length;
+
+    if (remainingSlots <= 0) {
+      return;
+    }
+
     const filesToAdd = selectedFiles.slice(0, remainingSlots);
 
     const nextPreviews = filesToAdd.map((file) => ({
