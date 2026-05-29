@@ -10,7 +10,14 @@ const SIZE_CLASSES = {
   lg: "w-[321px] min-h-[493px] rounded-[30px] px-6 py-5 md:w-[385px] md:min-h-[549px] md:py-[30px]",
 };
 
-const Modal = ({ isOpen, onClose, size = "sm", children }: ModalProps) => {
+const Modal = ({
+  isOpen,
+  onClose,
+  size = "sm",
+  className,
+  overlayClassName,
+  children,
+}: ModalProps) => {
   useEffect(() => {
     if (!isOpen) {
       return;
@@ -42,17 +49,14 @@ const Modal = ({ isOpen, onClose, size = "sm", children }: ModalProps) => {
   if (!isOpen) {
     return null;
   }
-  if (typeof document === "undefined") {
-    return null;
-  }
 
   return createPortal(
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/50"
+      className={`fixed inset-0 z-50 flex items-center justify-center bg-black/50 ${overlayClassName ?? ""}`}
       onMouseDown={onClose}
     >
       <div
-        className={`${SIZE_CLASSES[size]} bg-white`}
+        className={`${SIZE_CLASSES[size]} bg-white ${className ?? ""}`}
         onMouseDown={(e) => e.stopPropagation()}
       >
         {children}
