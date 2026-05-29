@@ -2,17 +2,13 @@
 
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import type { User } from "./Header";
+import type { User } from "./type";
 import Dropdown from "@/components/Dropdown/Dropdown";
 
 import BellIcon from "@/assets/icons/bell.svg";
 import DefaultProfileImage from "@/assets/images/default-profile.svg";
 
-type UserProps = {
-  user: User;
-};
-
-const HeaderUserMenu = ({ user }: UserProps) => {
+const HeaderUserMenu = ({ user }: { user: User }) => {
   const router = useRouter();
 
   const profileMenus = [

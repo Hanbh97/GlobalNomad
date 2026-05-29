@@ -1,6 +1,5 @@
 import Link from "next/link";
-
-type AuthLink = { href: string; text: string };
+import type { AuthLink } from "./type";
 
 const AUTH_LINKS: AuthLink[] = [
   {
