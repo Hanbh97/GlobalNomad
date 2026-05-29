@@ -11,7 +11,6 @@ const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
       label,
       placeholder,
       errorMessage,
-      value = "",
       onChange,
       onBlur,
       disabled = false,
@@ -23,9 +22,15 @@ const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
   ) => {
     const inputId = id || name;
     const [isFocused, setIsFocused] = useState(false);
+    const [count, setCount] = useState(0);
 
     const status = errorMessage ? "error" : isFocused ? "focus" : "default";
     const maxLength = 100;
+
+    const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+      setCount(e.target.value.length);
+      onChange?.(e);
+    };
 
     return (
       <div className={className}>
@@ -45,8 +50,7 @@ const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
             ref={ref}
             id={inputId}
             name={name}
-            value={value}
-            onChange={onChange}
+            onChange={handleChange}
             disabled={disabled}
             placeholder={placeholder}
             onFocus={() => setIsFocused(true)}
@@ -55,7 +59,7 @@ const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
               onBlur?.(e);
             }}
             maxLength={textCount ? maxLength : undefined}
-            className="w-full h-full p-[20px] border-none rounded-[16px] outline-none text-16-medium bg-white placeholder-gray-400 disabled:bg-gray-50 disabled:text-gray-400 disabled:placeholder-gray-200 resize-none"
+            className="w-full h-full p-[20px] border-none rounded-[16px] outline-none focus:outline-none focus:ring-0 text-16-medium bg-white placeholder-gray-400 disabled:bg-gray-50 disabled:text-gray-400 disabled:placeholder-gray-200 resize-none"
           />
         </div>
 
@@ -71,7 +75,7 @@ const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
 
             {textCount && (
               <span className="text-14-medium text-gray-600">
-                {value.length}/{maxLength}
+                {count}/{maxLength}
               </span>
             )}
           </div>
