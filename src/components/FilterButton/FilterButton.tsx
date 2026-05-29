@@ -34,7 +34,7 @@ const FilterButton = ({
 }: FilterButtonProps) => {
   const sizeStyle = sizes[size];
 
-  const selfMergeButtonStyle = [
+  const selfMergeFilterButtonStyle = [
     "inline-flex justify-center items-center rounded-full whitespace-nowrap",
     "[&_svg]:shrink-0 [&_svg]:aspect-square",
     "disabled:cursor-not-allowed disabled:opacity-70",
@@ -50,7 +50,7 @@ const FilterButton = ({
     .join(" ");
 
   return (
-    <button className={selfMergeButtonStyle} {...restProps}>
+    <button className={selfMergeFilterButtonStyle} {...restProps}>
       {icon}
       {restProps.children}
     </button>
