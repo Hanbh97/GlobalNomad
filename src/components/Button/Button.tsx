@@ -97,14 +97,14 @@ const Button = ({
     .filter(Boolean)
     .join(" ");
 
-  const resolvedIcon = currentSocial ? currentSocial.icon : icon;
-  const hasIcon = !!resolvedIcon || !!iconPosition;
+  const socialIcon = currentSocial ? currentSocial.icon : icon;
+  const hasIcon = !!socialIcon || !!iconPosition;
 
   return (
     <button className={selfMergeButtonStyle} {...restProps}>
       {hasIcon ? (
         <>
-          {resolvedIcon}
+          {socialIcon}
           {restProps.children}
         </>
       ) : (
