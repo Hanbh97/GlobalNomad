@@ -2,7 +2,7 @@ import { ButtonHTMLAttributes, ReactNode } from "react";
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   styleVariant?:
-    | "fillNone"
+    | "fillTransparent"
     | "fillWhite"
     | "fillPrimaryBlue"
     | "fillGray50"
@@ -15,8 +15,9 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   * 기존 옵셔널 방식에서 heightSize를 넘기지 않을 시 버튼이 네모로 나오는 문제로
   * 옵셔널 제거 및 heightSize에 각 사이즈별 rounded 지정
   * 
-  * 높이 54, 47, 41, 29, 50을 제외한 나머지 및 여러가지 사이즈에 설정을 className으로 주기 위해 custom 추가
+  * 높이 29, 41, 47, 50, 54 제외한 사이즈에 설정을 className으로 넘기기 위해 custom 추가
   */
-  heightSize: "lg54" | "md47" | "sm41" | "h29" | "h50" | "custom"; //
+  heightSize: "lg54" | "md47" | "sm41" | "h29" | "h50" | "custom";
+  setIcon: ReactNode;
   iconPosition?: "left" | "center";
 }
