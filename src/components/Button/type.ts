@@ -14,7 +14,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     | "reservationChange"
     | "reservationCancel";
 
-  size?: "lg" | "md" | "sm";
+  heightSize?: "lg54" | "md47" | "sm41";
   setIcon?: ReactNode;
   iconPosition?: "left" | "center";
 }
