@@ -8,11 +8,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     | "fillGray50"
     | "fillGray200"
     | "fillGray300"
-    | "kakaoButton"
-    | "iconButton"
-    | "sidemenuStyle"
-    | "reservationChange"
-    | "reservationCancel";
+    | "kakaoButton";
 
   /*
   lg, md, sm 외 모달, 예약내역 카드 등의 라벨 등 여러 곳에서 활용되어 h29, h50 추가
