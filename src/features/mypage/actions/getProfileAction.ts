@@ -6,7 +6,7 @@ import { MyProfileResponse } from "../type";
 
 const SERVER_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
-export const getProfileAction = async (): Promise<MyProfileResponse> => {
+const getProfileAction = async (): Promise<MyProfileResponse> => {
   const cookiesStorage = await cookies();
   const accessToken = cookiesStorage.get("accessToken")?.value;
   try {
@@ -28,3 +28,5 @@ export const getProfileAction = async (): Promise<MyProfileResponse> => {
     throw new Error(errorMessage);
   }
 };
+
+export default getProfileAction;

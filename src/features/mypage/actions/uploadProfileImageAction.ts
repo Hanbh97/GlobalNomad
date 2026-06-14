@@ -6,7 +6,7 @@ import { MyProfileImageResponse } from "../type";
 
 const SERVER_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
-export const uploadProfileImageAction = async (
+const uploadProfileImageAction = async (
   formData: FormData,
 ): Promise<MyProfileImageResponse> => {
   const cookiesStorage = await cookies();
@@ -34,3 +34,5 @@ export const uploadProfileImageAction = async (
     throw new Error(errorMessage);
   }
 };
+
+export default uploadProfileImageAction;
