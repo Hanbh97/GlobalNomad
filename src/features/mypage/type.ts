@@ -4,3 +4,9 @@ export interface ProfileEditFormValues {
   newPassword: string;
   newPasswordConfirm: string;
 }
+
+export interface MyProfileRequestBody {
+  nickname: string;
+  profileImageUrl: string;
+  newPassword: string;
+}
