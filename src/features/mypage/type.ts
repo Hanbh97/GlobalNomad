@@ -10,3 +10,12 @@ export interface MyProfileRequestBody {
   profileImageUrl: string;
   newPassword: string;
 }
+
+export interface MyProfileResponse {
+  id: number;
+  email: string;
+  nickname: string;
+  profileImageUrl: string;
+  createdAt: string;
+  updatedAt: string;
+}
