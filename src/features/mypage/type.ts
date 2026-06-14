@@ -19,3 +19,7 @@ export interface MyProfileResponse {
   createdAt: string;
   updatedAt: string;
 }
+
+export interface MyProfileImageResponse {
+  profileImageUrl: string;
+}
