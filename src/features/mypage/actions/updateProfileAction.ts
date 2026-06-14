@@ -6,7 +6,7 @@ import { MyProfileRequestBody, MyProfileResponse } from "../type";
 
 const SERVER_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
-export const updateProfileAction = async (
+const updateProfileAction = async (
   body: MyProfileRequestBody,
 ): Promise<MyProfileResponse> => {
   const cookiesStorage = await cookies();
@@ -31,3 +31,5 @@ export const updateProfileAction = async (
     throw new Error(errorMessage);
   }
 };
+
+export default updateProfileAction;
