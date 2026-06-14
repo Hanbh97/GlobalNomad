@@ -7,7 +7,7 @@ export interface ProfileEditFormValues {
 
 export interface MyProfileRequestBody {
   nickname: string;
-  profileImageUrl: string;
+  profileImageUrl: string | null;
   newPassword: string;
 }
 
@@ -15,7 +15,7 @@ export interface MyProfileResponse {
   id: number;
   email: string;
   nickname: string;
-  profileImageUrl: string;
+  profileImageUrl: string | null;
   createdAt: string;
   updatedAt: string;
 }
