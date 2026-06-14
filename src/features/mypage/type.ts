@@ -6,9 +6,9 @@ export interface ProfileEditFormValues {
 }
 
 export interface MyProfileRequestBody {
-  nickname: string;
-  profileImageUrl: string | null;
-  newPassword: string;
+  nickname?: string;
+  profileImageUrl?: string | null;
+  newPassword?: string;
 }
 
 export interface MyProfileResponse {
