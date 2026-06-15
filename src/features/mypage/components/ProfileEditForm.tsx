@@ -11,6 +11,20 @@ import ProfileImageInput from "@/components/ImageInput/ProfileImageInput";
 import Button from "@/components/Button/Button";
 import { showToast } from "@/lib/utils/toast";
 
+// [추가] switch-case로 상태코드를 받아 에러메시지로 변환하는 함수
+const getErrorMessage = (message: string): string => {
+  switch (message) {
+    case "400":
+      return "입력한 정보를 다시 확인해 주세요.";
+    case "401":
+      return "로그인 후 이용해 주세요.";
+    case "404":
+      return "존재하지 않는 유저입니다.";
+    default:
+      return "요청 처리 중 오류가 발생했습니다.";
+  }
+};
+
 const ProfileEditForm = () => {
   const { data: user, isLoading, isError, error } = useGetProfile();
   const { mutate: updateProfile, isPending } = useUpdateProfile();
@@ -99,7 +113,7 @@ const ProfileEditForm = () => {
 
           // 변경사항: 1개
           if (changedItems.length === 1) {
-            showToast.success(`${changedItems[0]} 이(가) 변경되었습니다.`);
+            showToast.success(`${changedItems[0]} 변경이 완료되었습니다.`);
           }
           // 변경사항: 1개 이상
           else {
@@ -107,13 +121,13 @@ const ProfileEditForm = () => {
           }
         },
         onError: (error) => {
-          showToast.error(error.message);
+          showToast.error(getErrorMessage(error.message));
         },
       });
     } catch (error) {
       showToast.error(
         error instanceof Error
-          ? error.message
+          ? getErrorMessage(error.message)
           : "프로필 수정 중 오류가 발생했습니다",
       );
     }
@@ -121,23 +135,16 @@ const ProfileEditForm = () => {
 
   if (isLoading) {
     return (
-      <div className="text-center py-10 text-gray-950 font-medium">
-        로딩 중...
+      <div className="flex min-h-[50vh] items-center justify-center text-center text-xl text-gray-950 font-medium">
+        내 정보 로딩 중...
       </div>
     );
   }
 
   if (isError) {
-    const errorMessage =
-      error.message === "401"
-        ? "로그인 후 이용해 주세요."
-        : error.message === "404"
-          ? "존재하지 않는 유저입니다."
-          : "내 정보 조회에 실패했습니다.";
-
     return (
-      <div className="text-center py-10 text-red-600 font-medium">
-        {errorMessage}
+      <div className="flex min-h-[50vh] items-center justify-center text-xl text-red-600 font-medium">
+        {getErrorMessage(error.message)}
       </div>
     );
   }
