@@ -190,8 +190,12 @@ const ProfileEditForm = () => {
           errorMessage={errors.newPassword?.message}
           {...register("newPassword", {
             validate: (value) => {
-              if (!value) return true;
-              if (value.length < 8) return "8자 이상 입력해 주세요.";
+              if (!value) {
+                return true;
+              }
+              if (value.length < 8) {
+                return "8자 이상 입력해 주세요.";
+              }
               if (
                 !/^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*()_+={}\[\]:;"'<>,.?/~\-])\S+$/.test(
                   value,
@@ -212,7 +216,9 @@ const ProfileEditForm = () => {
           errorMessage={errors.newPasswordConfirm?.message}
           {...register("newPasswordConfirm", {
             validate: (value) => {
-              if (!newPassword) return true;
+              if (!newPassword) {
+                return true;
+              }
               return value === newPassword || "비밀번호가 일치하지 않습니다";
             },
           })}
