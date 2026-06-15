@@ -128,9 +128,16 @@ const ProfileEditForm = () => {
   }
 
   if (isError) {
+    const errorMessage =
+      error.message === "401"
+        ? "로그인 후 이용해 주세요."
+        : error.message === "404"
+          ? "존재하지 않는 유저입니다."
+          : "내 정보 조회에 실패했습니다.";
+
     return (
       <div className="text-center py-10 text-red-600 font-medium">
-        {error.message}
+        {errorMessage}
       </div>
     );
   }
