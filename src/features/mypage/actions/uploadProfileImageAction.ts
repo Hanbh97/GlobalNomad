@@ -22,7 +22,7 @@ const uploadProfileImageAction = async (
     );
     return response.data;
   } catch (error) {
-    let errorMessage = "프로필 이미지 업로드에 실패했습니다.";
+    let errorMessage = "프로필 이미지 변경에 실패했습니다.";
     if (axios.isAxiosError(error)) {
       const statusCode = error.response?.status;
       if (statusCode === 401) {
