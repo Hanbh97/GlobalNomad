@@ -17,6 +17,9 @@ const SignupForm = () => {
   const [alertMessage, setAlertMessage] = useState("");
   const [isSignupSucceed, setIsSignupSucceed] = useState(false);
 
+  const DEFAULT_SIGNUP_ERROR_MESSAGE =
+    "회원가입에 실패했습니다. 잠시 후 시도해주세요.";
+
   const {
     register,
     handleSubmit,
@@ -52,12 +55,11 @@ const SignupForm = () => {
             });
           } else {
             setAlertMessage(
-              error.response?.data?.message ??
-                "서버 통신 문제로 회원가입에 실패했습니다. 잠시 후 시도해 주세요.",
+              error.response?.data?.message ?? DEFAULT_SIGNUP_ERROR_MESSAGE,
             );
           }
         } else {
-          setAlertMessage("회원가입에 실패했습니다. 잠시 후 시도해 주세요.");
+          setAlertMessage(DEFAULT_SIGNUP_ERROR_MESSAGE);
         }
       },
     });
@@ -111,7 +113,7 @@ const SignupForm = () => {
             required: "닉네임을 입력해 주세요.",
             maxLength: {
               value: 10,
-              message: "10자 이하로 작성해 주세요.",
+              message: "닉네임은 10자 이하로 입력해 주세요.",
             },
           })}
         />
@@ -157,7 +159,7 @@ const SignupForm = () => {
             onChange={(e) => setIsAgreedTerms(e.target.checked)}
             className="w-4 h-4 cursor-pointer"
           />
-          <span className="text-[#0E528A] font-medium text-sm">
+          <span className="text-primary-700 font-medium text-sm">
             이용약관 및 개인정보 수집에 동의합니다.
           </span>
         </label>
@@ -175,7 +177,7 @@ const SignupForm = () => {
 
       <div className="flex items-center gap-4 self-stretch w-full">
         <hr className="flex-1 border-gray-100" />
-        <span className="text-[#79747E] text-center text-sm md:text-base font-medium tracking-[-0.4px] shrink-0">
+        <span className="text-gray-560 text-center text-sm md:text-base font-medium tracking-[-0.4px] shrink-0">
           SNS 계정으로 회원가입하기
         </span>
         <hr className="flex-1 border-gray-100" />
