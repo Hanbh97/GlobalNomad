@@ -39,7 +39,7 @@ const SignupForm = () => {
   const password = watch("password");
   const timerRef = useRef<NodeJS.Timeout | null>(null);
 
-  const postSignup = (data: SignupFormValues) => {
+  const onSubmitSignupForm = (data: SignupFormValues) => {
     const { passwordConfirm, ...signupData } = data;
     mutate(signupData, {
       onSuccess: () => {
@@ -86,7 +86,7 @@ const SignupForm = () => {
   return (
     <div className="w-full flex flex-col items-center gap-6 self-stretch">
       <form
-        onSubmit={handleSubmit(postSignup)}
+        onSubmit={handleSubmit(onSubmitSignupForm)}
         className="w-full flex flex-col items-center gap-6 self-stretch"
       >
         <TextInput
