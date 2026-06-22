@@ -3,7 +3,7 @@
 import axios from "axios";
 import useSignup from "../hooks/useSignup";
 import { useForm, useWatch } from "react-hook-form";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import TextInput from "@/components/Input/TextInput";
@@ -37,50 +37,56 @@ const SignupForm = () => {
   });
 
   const password = useWatch({ control, name: "password" }) || "";
-  const timerRef = useRef<NodeJS.Timeout | null>(null);
+  const timerRef = useRef<NodeJS.Timeout | null>(null); // 3천 페이지 떠날 시 ref에 타이머 ID 저장
 
-  const onSubmitSignupForm = (data: SignupFormValues) => {
-    const { passwordConfirm, ...signupData } = data;
-    mutate(signupData, {
-      onSuccess: () => {
-        setIsSignupSucceed(true);
-        timerRef.current = setTimeout(startLogin, 3000);
-      },
-      onError: (error) => {
-        if (axios.isAxiosError(error)) {
-          const statusCode = error.response?.status;
-          if (statusCode === 409) {
-            setError("email", {
-              message: "이미 사용 중인 이메일입니다.",
-            });
-          } else {
-            setAlertMessage(
-              error.response?.data?.message ?? DEFAULT_SIGNUP_ERROR_MESSAGE,
-            );
-          }
-        } else {
-          setAlertMessage(DEFAULT_SIGNUP_ERROR_MESSAGE);
-        }
-      },
-    });
-  };
-
-  const startLogin = () => {
-    if (timerRef.current) {
-      clearTimeout(timerRef.current);
-      timerRef.current = null;
-    }
+  // 렌더링마다 새 함수가 생기면 아래 useEffect가 계속 재실행되므로 useCallback으로 고정
+  const startLogin = useCallback(() => {
     setIsSignupSucceed(false);
     router.push("/login");
-  };
+  }, [router]);
 
+  // 회원가입 성공 후 startLogin 함수 실행되어 로그인 페이지로 이동
+  // onSuccess 안에 직접 쓰면 에러가 나서 useEffect로 분리
   useEffect(() => {
+    if (!isSignupSucceed) return;
+    timerRef.current = setTimeout(startLogin, 3000);
     return () => {
-      if (timerRef.current) {
-        clearTimeout(timerRef.current);
-      }
+      if (timerRef.current) clearTimeout(timerRef.current);
     };
-  }, []);
+  }, [isSignupSucceed, startLogin]);
+
+  // useCallback 없이 쓰면 에러가 나서 감싸줌
+  const onSubmitSignupForm = useCallback(
+    (data: SignupFormValues) => {
+      const signupData = {
+        email: data.email,
+        nickname: data.nickname,
+        password: data.password,
+      };
+      mutate(signupData, {
+        onSuccess: () => {
+          setIsSignupSucceed(true);
+        },
+        onError: (error) => {
+          if (axios.isAxiosError(error)) {
+            const statusCode = error.response?.status;
+            if (statusCode === 409) {
+              setError("email", {
+                message: "이미 사용 중인 이메일입니다.",
+              });
+            } else {
+              setAlertMessage(
+                error.response?.data?.message ?? DEFAULT_SIGNUP_ERROR_MESSAGE,
+              );
+            }
+          } else {
+            setAlertMessage(DEFAULT_SIGNUP_ERROR_MESSAGE);
+          }
+        },
+      });
+    },
+    [mutate, setError],
+  );
 
   const [isAgreedTerms, setIsAgreedTerms] = useState(false);
   return (
@@ -113,7 +119,7 @@ const SignupForm = () => {
             required: "닉네임을 입력해 주세요.",
             maxLength: {
               value: 10,
-              message: "닉네임은 10자 이하로 입력해 주세요.",
+              message: "닉네임은 10자 이하로 입력해주세요.",
             },
           })}
         />
@@ -134,7 +140,7 @@ const SignupForm = () => {
               value:
                 /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*()_+={}\[\]:;"'<>,.?/~\-])\S+$/,
               message:
-                "영문, 숫자, 특수문자를 각각 1자 이상 조합해 입력해 주세요.",
+                "영문, 숫자, 특수문자를 각각 1자 이상 조합해 입력해주세요.",
             },
           })}
         />
@@ -207,7 +213,7 @@ const SignupForm = () => {
         isOpen={isSignupSucceed}
         onClose={startLogin}
         message={
-          "회원가입이 완료되었습니다! 로그인 후 GlobalNomad와 함께 떠나보세요."
+          "회원가입 완료되었습니다! 로그인 후 GlobalNomad와 함께 떠나보세요."
         }
       />
       <SuccessModal
