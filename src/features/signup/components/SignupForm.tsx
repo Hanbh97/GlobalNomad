@@ -2,7 +2,7 @@
 
 import axios from "axios";
 import useSignup from "../hooks/useSignup";
-import { useForm } from "react-hook-form";
+import { useForm, useWatch } from "react-hook-form";
 import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
@@ -23,7 +23,7 @@ const SignupForm = () => {
   const {
     register,
     handleSubmit,
-    watch,
+    control,
     setError,
     formState: { errors, isValid },
   } = useForm<SignupFormValues>({
@@ -36,7 +36,7 @@ const SignupForm = () => {
     },
   });
 
-  const password = watch("password");
+  const password = useWatch({ control, name: "password" }) || "";
   const timerRef = useRef<NodeJS.Timeout | null>(null);
 
   const onSubmitSignupForm = (data: SignupFormValues) => {
